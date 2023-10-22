@@ -6,7 +6,9 @@ public class PasswordStrengthMeter {
             return PasswordStrength.INVALID;
         }
 
-        if (s.length() < 8) {
+        boolean lengthEnough = s.length() >= 8;
+
+        if (!lengthEnough) {
             return PasswordStrength.NORMAL;
         }
 
