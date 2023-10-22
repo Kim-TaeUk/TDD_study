@@ -32,11 +32,16 @@ public class PasswordStrengthMeterTest {
 
     @Test
     void nullInput_Then_Invalid() {
-        assertStrength(null,PasswordStrength.INVALID);
+        assertStrength(null, PasswordStrength.INVALID);
     }
 
     @Test
     void emptyInput_Then_Invalid() {
         assertStrength("", PasswordStrength.INVALID);
+    }
+
+    @Test
+    void meetsOtherCriteria_except_for_Uppercase_Then_Normal() {
+        assertStrength("ab12!@df", PasswordStrength.NORMAL);
     }
 }
