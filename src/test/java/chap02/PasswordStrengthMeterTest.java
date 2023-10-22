@@ -6,6 +6,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PasswordStrengthMeterTest {
 
+    private PasswordStrengthMeter meter = new PasswordStrengthMeter();
+
+    private void assertStrength(String password, PasswordStrength expStr) {
+        PasswordStrength result = meter.meter(password);
+        assertEquals(expStr, result);
+    }
+
     @Test
     void meetsAllCriteria_Then_Strong() {
         PasswordStrengthMeter meter = new PasswordStrengthMeter();
