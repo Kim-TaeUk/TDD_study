@@ -7,17 +7,15 @@ public class PasswordStrengthMeter {
         }
 
         boolean lengthEnough = s.length() >= 8;
+        boolean containsNum = meetsContainingNumberCriteria(s);
+        boolean containsUpp = meetsContainingUppercaseCriteria(s);
 
         if (!lengthEnough) {
             return PasswordStrength.NORMAL;
         }
-
-        boolean containsNum = meetsContainingNumberCriteria(s);
         if (!containsNum) {
             return PasswordStrength.NORMAL;
         }
-
-        boolean containsUpp = meetsContainingUppercaseCriteria(s);
         if (!containsUpp) {
             return PasswordStrength.NORMAL;
         }
