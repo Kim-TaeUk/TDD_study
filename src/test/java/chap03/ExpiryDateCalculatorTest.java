@@ -22,7 +22,7 @@ public class ExpiryDateCalculatorTest {
                         .billingDate(LocalDate.of(2019, 5, 5))
                         .payAmount(10_000)
                         .build(),
-                LocalDate.of(2019, 6, 6)
+                LocalDate.of(2019, 6, 5)
         );
     }
 
