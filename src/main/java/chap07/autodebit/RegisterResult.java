@@ -10,10 +10,14 @@ public class RegisterResult {
 	}
 
 	public static RegisterResult error(CardValidity validity) {
-		return new RegisterResult(INVALID);
+		return new RegisterResult(validity);
 	}
 
 	public static RegisterResult success() {
 		return new RegisterResult(VALID);
+	}
+
+	public CardValidity getValidity() {
+		return validity;
 	}
 }
