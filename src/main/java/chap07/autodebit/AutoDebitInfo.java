@@ -20,4 +20,8 @@ public class AutoDebitInfo {
 	public String getUserId() {
 		return userId;
 	}
+
+	public String getCardNumber() {
+		return cardNumber;
+	}
 }
