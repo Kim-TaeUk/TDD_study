@@ -37,4 +37,15 @@ public class UserRegisterTest {
 			userRegister.register("id", "pw2", "email");
 		});
 	}
+
+	@DisplayName("같은 ID가 없으면 가입 성공")
+	@Test
+	void noDupId_RegisterSuccess() {
+		userRegister.register("id", "pw", "email");
+
+		// 가입 결과 확인
+		User savedUser = fakeRepository.findById("id");
+		assertEquals("id",savedUser.getId());
+		assertEquals("email", savedUser.getEmail());
+	}
 }
