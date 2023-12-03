@@ -3,12 +3,15 @@ package chap07.register;
 public class UserRegister {
 	private WeakPasswordChecker weakPasswordChecker;
 	private UserRepository userRepository;
+	private EmailNotifier emailNotifier;
 
 	public UserRegister(
 		WeakPasswordChecker weakPasswordChecker,
-		UserRepository userRepository) {
+		UserRepository userRepository,
+		EmailNotifier emailNotifier) {
 		this.weakPasswordChecker = weakPasswordChecker;
 		this.userRepository = userRepository;
+		this.emailNotifier = emailNotifier;
 	}
 
 	public void register(String id, String pw, String email) {
@@ -21,5 +24,7 @@ public class UserRegister {
 			throw new DupIdException();
 		}
 		userRepository.save(new User(id, pw, email));
+
+		emailNotifier.sendRegisterEmail(email);
 	}
 }
